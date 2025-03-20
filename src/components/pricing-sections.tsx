@@ -62,8 +62,8 @@ export default function Pricing() {
         </p>
       </div>
       <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-gray-400 sm:text-xl">
-        Select a plan that suits your cat's appetite. From kittens to adult
-        cats, we've got you covered!
+        Select a plan that suits your cats appetite. From kittens to adult cats,
+        weve got you covered!
       </p>
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
         {tiers.map((tier, tierIdx) => (

@@ -6,7 +6,7 @@ import Testimonial from "@/components/testimonial";
 import Team from "@/components/team-section";
 import Navbar from "@/components/navbar";
 
-function IndexPage(_props: any) {
+function IndexPage() {
   return (
     <div>
       <div className="flex flex-col items-center text-center space-y-2 mx-2">
