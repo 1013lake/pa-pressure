@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   const message = formData.get("message");
 
   try {
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Port Pressure <noreply@portpressure.alberni.dev>", // or a verified domain later
       to: "general_blake@hotmail.com", // your real inbox
       subject: `New message from ${name}`,
