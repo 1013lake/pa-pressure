@@ -2,7 +2,7 @@ const people = [
   {
     name: "Garfield",
     role: "Co-Founder / CEO",
-    imageUrl: "https://i.imgur.com/aoegmCn.jpeg",
+    imageUrl: "pressurelogow.png",
     altText: "Leslie Alexander portrait",
   },
   // Add more people here...

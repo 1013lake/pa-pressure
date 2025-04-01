@@ -27,23 +27,23 @@ const testimonials = [
 
 export default function TestimonialSection() {
   return (
-    <section className="bg-charcoal-800 py-16 lg:py-24 text-white">
+    <section className="bg-gray-900 py-16 lg:py-24 text-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold text-center sm:text-4xl text-orange-500">
+        <h2 className="text-3xl font-semibold text-center sm:text-4xl text-blue-500">
           What Our Clients Say
         </h2>
         <div className="mt-12 grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="flex flex-col items-center text-center p-6 bg-charcoal-900 rounded-xl mb-6"
+              className="flex flex-col items-center text-center p-6 bg-gray-800 rounded-xl mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <img
                 src={testimonial.imageUrl}
                 alt={`Image of ${testimonial.name} the cat, ${testimonial.title}`}
-                className="w-24 h-24 rounded-full object-cover mb-4"
+                className="w-24 h-24 rounded-full object-cover mb-4 border-4 border-blue-500"
               />
-              <p className="text-lg font-medium text-gray-200 leading-relaxed">
+              <p className="text-lg font-medium text-gray-300 leading-relaxed">
                 {testimonial.testimonial}
               </p>
               <div className="mt-4">

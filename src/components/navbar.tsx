@@ -5,10 +5,11 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Products", href: "#" },
-  { name: "Benefits", href: "#" },
-  { name: "Treats", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Home", href: "#" },
+  { name: "Services", href: "#" },
+  { name: "Pricing", href: "#" },
+  { name: "About Us", href: "#" },
+  { name: "Contact", href: "#" },
 ];
 
 export default function Navbar() {
@@ -16,47 +17,47 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-black shadow-lg">
-      <nav className="flex items-center justify-between p-6 lg:px-8">
+      <nav className="flex items-center py-3 lg:px-8">
         {/* Logo */}
-        <a href="#" className="-m-1.5 p-1.5">
-          <span className="sr-only">Logo</span>
+        <a href="#" className="-m-1.5 p-1.5 flex items-center">
+          <span className="sr-only">Port Pressure</span>
           <img
-            alt="Healthy Cat Food"
-            src="https://cdn-icons-png.flaticon.com/512/616/616430.png"
-            className="h-8 w-auto"
+            alt="Port Pressure"
+            src="/pressurelogow.png" // Replace with your actual logo URL
+            className="h-16 w-auto" // Increased logo size
           />
         </a>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(true)}
-          className="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
-        >
-          <span className="sr-only">Open main menu</span>
-          <Bars3Icon aria-hidden="true" className="h-6 w-6" />
-        </button>
-
-        {/* Desktop Links */}
-        <div className="hidden lg:flex lg:gap-x-12">
+        {/* Centered Desktop Links */}
+        <div className="flex-14 flex justify-center gap-x-12">
           {navigation.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold text-white hover:text-orange-500"
+              className="text-sm font-semibold text-white hover:text-blue-500"
             >
               {item.name}
             </a>
           ))}
         </div>
 
-        {/* Log in Button (Desktop) */}
+        {/* Mobile Menu Button */}
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen(true)}
+          className="lg:hidden inline-flex items-center justify-center rounded-full bg-blue-500 p-3 text-white hover:bg-blue-400 focus:outline-none"
+        >
+          <span className="sr-only">Open menu</span>
+          <Bars3Icon aria-hidden="true" className="h-8 w-8" />
+        </button>
+
+        {/* Get a Quote Button (Desktop) */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
             href="#"
-            className="text-sm font-semibold text-white hover:text-orange-500"
+            className="text-sm font-semibold text-white hover:text-blue-500"
           >
-            Log in <span aria-hidden="true">&rarr;</span>
+            Get a Quote <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -72,11 +73,11 @@ export default function Navbar() {
           {/* Close Button */}
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Logo</span>
+              <span className="sr-only">Port Pressure</span>
               <img
-                alt="Logo"
-                src="https://your-logo-url.com/logo.png"
-                className="h-8 w-auto"
+                alt="Port Pressure Logo"
+                src="/pressurelogow.png" // Replace with your actual logo URL
+                className="h-16 w-auto" // Adjust logo size for mobile menu
               />
             </a>
             <button
@@ -97,7 +98,7 @@ export default function Navbar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-orange-500"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-blue-500"
                   >
                     {item.name}
                   </a>
@@ -106,9 +107,9 @@ export default function Navbar() {
               <div className="py-6">
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-orange-500"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-blue-500"
                 >
-                  Log in
+                  Get a Quote
                 </a>
               </div>
             </div>

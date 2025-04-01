@@ -2,21 +2,19 @@
 
 import { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Edges from "./edges";
 
 const navigation = [
-  { name: "Products", href: "#" },
-  { name: "Benefits", href: "#" },
-  { name: "Treats", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Services", href: "#" },
+  { name: "Pricing", href: "#" },
+  { name: "About Us", href: "#" },
+  { name: "Contact", href: "#" },
 ];
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
-  const images = [
-    "https://i.imgur.com/ThACsJ2.jpeg",
-    "https://imgur.com/mts98QA.jpeg",
-  ];
+  const images = ["/980clean.jpg", "/980dirty.jpg"]; // Replace with your actual images for Port Pressure
 
   useEffect(() => {
     const interval = setInterval(
@@ -27,90 +25,106 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative bg-charcoal-800">
-      {/* Full-screen Gradient Box */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#000000] to-[#3c3c3c] opacity-100 w-full h-full"></div>
-
-      {/* Hero Section */}
-      <header className="absolute inset-0 z-10 flex justify-between items-center p-6 lg:px-8">
-        <div className="flex flex-1"></div>
-        <button
-          onClick={() => setMobileMenuOpen(true)}
-          className="lg:hidden text-white p-2.5"
+    <div className="relative isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8 max-h-screen overflow-hidden">
+      <Edges size="2xl">
+        {/* Gradient Box */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
         >
-          <Bars3Icon className="h-6 w-6" />
-        </button>
-      </header>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-          <div className="flex justify-end p-6">
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-white"
-            >
-              <XMarkIcon className="h-6 w-6" />
-            </button>
-          </div>
-          <div className="fixed inset-y-0 right-0 w-2/3 bg-charcoal-800 p-6">
-            <ul>
-              {navigation.map((item) => (
-                <li key={item.name}>
-                  <a href={item.href} className="block py-2 text-white">
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+            }}
+            className="mx-auto aspect-1155/678 w-[72.1875rem] bg-gradient-to-tr from-[#4C6EF5] to-[#1D4ED8] opacity-20"
+          />
         </div>
-      )}
 
-      {/* Main Content */}
-      <main className="relative pt-24 pb-16 text-white z-10">
-        <div className="mx-auto flex flex-col lg:flex-row items-center justify-between w-full px-6">
-          <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
-            <h2 className="text-5xl font-semibold text-orange-500 sm:text-6xl">
-              Welcome to Healthy Cat Food!
-            </h2>
-            <p className="mt-4 text-lg text-gray-300 sm:text-xl">
-              Get the best nutrition for your cats delivered to your doorstep.
-            </p>
-            <div className="mt-8">
-              <a
-                href="#"
-                className="inline-block bg-orange-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-orange-500"
+        {/* Hero Section */}
+        <header className="absolute inset-0 z-10 flex justify-between items-center p-6 lg:px-8">
+          <div className="flex flex-1"></div>
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="lg:hidden text-white p-2.5"
+          >
+            <Bars3Icon className="h-6 w-6" />
+          </button>
+        </header>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+            <div className="flex justify-end p-6">
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-white"
               >
-                Shop Now
-              </a>
-              <a
-                href="#"
-                className="inline-block ml-4 bg-charcoal-700 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-charcoal-600"
-              >
-                Learn More
-              </a>
+                <XMarkIcon className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="fixed inset-y-0 right-0 w-2/3 bg-gray-900 p-6">
+              <ul>
+                {navigation.map((item) => (
+                  <li key={item.name}>
+                    <a href={item.href} className="block py-2 text-white">
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+        )}
 
-          <div className="lg:w-1/2 mt-[50px] lg:mt-0 relative w-full h-[400px] overflow-hidden border-4 border-gray-800 rounded-lg">
-            <img
-              src={images[0]}
-              alt="Healthy Cat Food"
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
-                imageIndex === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
-            />
-            <img
-              src={images[1]}
-              alt="Healthy Cat Food"
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
-                imageIndex === 1 ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
-            />
+        {/* Main Content */}
+        <main className="relative flex items-center justify-center pt-1 pb-60 text-white z-10 mt-[30px] max-h-screen">
+          <div className="mx-auto flex flex-col lg:flex-row items-center justify-between w-full px-6">
+            <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
+              {/* Increased Text Sizes */}
+              <h2 className="text-6xl font-semibold text-blue-400 sm:text-7xl md:text-8xl">
+                Welcome to Port Pressure Solutions!
+              </h2>
+              <p className="mt-4 text-xl text-gray-300 sm:text-2xl md:text-3xl">
+                Providing high-efficiency solutions for both industrial and
+                residential systems. Get your systems optimized today!
+              </p>
+              <div className="mt-8">
+                <a
+                  href="#"
+                  className="inline-block bg-blue-600 text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-blue-500"
+                >
+                  Get a Quote
+                </a>
+                <a
+                  href="#"
+                  className="inline-block ml-4 bg-gray-600 text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-gray-700"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+
+            {/* Increased Image Size */}
+            <div className="lg:w-1/2 mt-[50px] lg:mt-0 relative w-full h-[600px] overflow-hidden border-4 border-blue-400 rounded-lg">
+              <img
+                src={images[0]}
+                alt="Port Pressure"
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+                  imageIndex === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
+              />
+              <img
+                src={images[1]}
+                alt="Port Pressure"
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+                  imageIndex === 1 ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
+              />
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </Edges>
     </div>
   );
 }
