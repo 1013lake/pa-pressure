@@ -25,9 +25,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8 max-h-screen overflow-hidden">
+    <div className="relative isolate bg-gray-900 px-6 py-30 sm:py-30 lg:px-8 max-h-screen overflow-hidden">
+      {/* Gradient Box */}
       <Edges size="2xl">
-        {/* Gradient Box */}
+        {" "}
+        {/* Added size="2xl" here */}
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
@@ -40,7 +42,6 @@ export default function Hero() {
             className="mx-auto aspect-1155/678 w-[72.1875rem] bg-gradient-to-tr from-[#4C6EF5] to-[#1D4ED8] opacity-20"
           />
         </div>
-
         {/* Hero Section */}
         <header className="absolute inset-0 z-10 flex justify-between items-center p-6 lg:px-8">
           <div className="flex flex-1"></div>
@@ -51,7 +52,6 @@ export default function Hero() {
             <Bars3Icon className="h-6 w-6" />
           </button>
         </header>
-
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
@@ -76,9 +76,8 @@ export default function Hero() {
             </div>
           </div>
         )}
-
         {/* Main Content */}
-        <main className="relative flex items-center justify-center pt-1 pb-60 text-white z-10 mt-[30px] max-h-screen">
+        <main className="relative flex items-center justify-center pt-1 pb-24 text-white z-10 mt-[30px] max-h-screen">
           <div className="mx-auto flex flex-col lg:flex-row items-center justify-between w-full px-6">
             <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
               {/* Increased Text Sizes */}

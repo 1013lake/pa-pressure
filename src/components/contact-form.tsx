@@ -1,4 +1,5 @@
 import React from "react";
+import Edges from "./edges"; // Import Edges component
 
 function ContactForm() {
   return (
@@ -18,63 +19,68 @@ function ContactForm() {
       </div>
 
       {/* Contact Form Section */}
-      <div className="max-w-3xl mx-auto text-center z-10">
-        <h2 className="text-4xl font-semibold text-center text-white mb-8">
-          Contact Us
-        </h2>
-        <form action="/api/contact" method="POST">
-          <div className="mb-6">
-            <label htmlFor="name" className="block text-lg text-white mb-2">
-              Your Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Your Name"
-              required
-              className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            />
-          </div>
+      <Edges size="2xl">
+        {" "}
+        {/* Use the 2xl size for uniformity */}
+        <div className="text-center z-10">
+          <h2 className="text-4xl font-semibold text-white mb-8">Contact Us</h2>
+          <form action="/api/contact" method="POST">
+            <div className="mb-6">
+              <label htmlFor="name" className="block text-lg text-white mb-2">
+                Your Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Your Name"
+                required
+                className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
+            </div>
 
-          <div className="mb-6">
-            <label htmlFor="email" className="block text-lg text-white mb-2">
-              Your Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your Email"
-              required
-              className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            />
-          </div>
+            <div className="mb-6">
+              <label htmlFor="email" className="block text-lg text-white mb-2">
+                Your Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your Email"
+                required
+                className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
+            </div>
 
-          <div className="mb-6">
-            <label htmlFor="message" className="block text-lg text-white mb-2">
-              Your Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              placeholder="Your message..."
-              required
-              className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              rows={5}
-            />
-          </div>
+            <div className="mb-6">
+              <label
+                htmlFor="message"
+                className="block text-lg text-white mb-2"
+              >
+                Your Message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Your message..."
+                required
+                className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                rows={5}
+              />
+            </div>
 
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
-            >
-              Send Message
-            </button>
-          </div>
-        </form>
-      </div>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="bg-blue-600 text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </Edges>
     </div>
   );
 }

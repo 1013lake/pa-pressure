@@ -13,7 +13,6 @@ function IndexPage() {
       <Navbar />
       <Hero />
       <ContactForm />
-      <Pricing />
       <Testimonial />
       <Team />
       <Footer />
