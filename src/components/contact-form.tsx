@@ -3,8 +3,8 @@ import Edges from "./edges"; // Import Edges component
 
 function ContactForm() {
   return (
-    <div className="relative isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
-      {/* Background Gradient that will merge with previous sections */}
+    <div className="relative isolate bg-gray-900 text-white py-16 lg:py-24">
+      {/* Background Gradient Box */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
@@ -18,41 +18,51 @@ function ContactForm() {
         />
       </div>
 
-      {/* Contact Form Section */}
+      {/* Wrapping the content inside the Edges component */}
       <Edges size="2xl">
-        {" "}
-        {/* Use the 2xl size for uniformity */}
-        <div className="text-center z-10">
-          <h2 className="text-4xl font-semibold text-white mb-8">Contact Us</h2>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-semibold text-white">Contact Us</h2>
+          </div>
+
+          {/* Contact Form Section */}
           <form action="/api/contact" method="POST">
-            <div className="mb-6">
-              <label htmlFor="name" className="block text-lg text-white mb-2">
-                Your Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Your Name"
-                required
-                className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Name Field */}
+              <div className="mb-6">
+                <label htmlFor="name" className="block text-lg text-white mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                  className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+              </div>
+
+              {/* Email Field */}
+              <div className="mb-6">
+                <label
+                  htmlFor="email"
+                  className="block text-lg text-white mb-2"
+                >
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                  className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+              </div>
             </div>
 
-            <div className="mb-6">
-              <label htmlFor="email" className="block text-lg text-white mb-2">
-                Your Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Your Email"
-                required
-                className="w-full p-4 text-xl text-gray-900 rounded-md bg-blue-300 border border-blue-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
-            </div>
-
+            {/* Message Field */}
             <div className="mb-6">
               <label
                 htmlFor="message"
@@ -70,6 +80,7 @@ function ContactForm() {
               />
             </div>
 
+            {/* Submit Button */}
             <div className="flex justify-center">
               <button
                 type="submit"

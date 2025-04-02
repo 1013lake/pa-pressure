@@ -1,18 +1,17 @@
 import React from "react";
-import Hero from "@/components/hero";
+
+import Pricing from "@/components/pricing-sections";
+
 import Testimonial from "@/components/testimonial";
-import Team from "@/components/team-section";
-import ContactForm from "@/components/contact-form";
+
 import Services from "@/components/services";
 
 function IndexPage() {
   return (
     <div>
-      <Hero />
       <Services />
-      <ContactForm />
+      <Pricing />
       <Testimonial />
-      <Team />
     </div>
   );
 }

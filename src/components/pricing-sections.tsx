@@ -5,7 +5,7 @@ const tiers = [
   {
     name: "Residential Bin Cleaning (One-Time & Subscription)",
     id: "tier-residential",
-    href: "#",
+    href: "#", // Will be ignored as it's hardcoded below
     priceMonthly: "$40 (One-Time)",
     description:
       "One-time cleaning for your residential bins (recycling, organics, and garbage). Keep your bins fresh with a monthly subscription for all 3 bins at $60 per month.",
@@ -21,8 +21,8 @@ const tiers = [
   {
     name: "Commercial Dumpster Pad Cleaning",
     id: "tier-commercial-cleaning",
-    href: "#",
-    priceMonthly: "$350 (Initial) + $200/month",
+    href: "#", // Will be ignored as it's hardcoded below
+    priceMonthly: "$300 (Initial) + $200/month",
     description:
       "Initial $350 for deep cleaning of your commercial dumpster pad. Following that, a monthly fee of $200 is applied for regular cleaning.",
     features: [
@@ -125,8 +125,9 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
+            {/* Changed href to "/contact" */}
             <a
-              href={tier.href}
+              href="/contact" // Direct link to the Contact page
               aria-describedby={tier.id}
               className={classNames(
                 tier.featured
