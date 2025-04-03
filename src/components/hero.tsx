@@ -1,28 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Edges from "./edges";
 import Link from "next/link"; // Import Link for Next.js navigation
 import Image from "next/image"; // Import Image component for optimized images
 
 export default function Hero() {
-  const [imageIndex, setImageIndex] = useState(0);
-  const images = [
-    { src: "/980clean.jpg", width: 1920, height: 1080 }, // Add image dimensions for optimization
-    { src: "/980dirty.jpg", width: 1920, height: 1080 }, // Add image dimensions for optimization
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(
-      () => setImageIndex((prev) => (prev + 1) % images.length),
-      5000
-    );
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="relative isolate bg-gray-900 px-6 py-30 sm:py-16 lg:px-8 max-h-screen overflow-hidden">
-      {/* Background Gradient Box (old background stays) */}
+      {/* Background Gradient Box (keeps old background) */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
@@ -70,17 +55,20 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Increased Image Size */}
+              {/* Static Image (driveway.jpg) */}
               <div className="lg:w-1/2 mt-[50px] lg:mt-0 relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden border-4 border-blue-400 rounded-lg sm:mt-8">
                 <div className="absolute inset-0 w-full h-full">
+                  {/* Static image */}
                   <Image
-                    src={images[imageIndex].src}
-                    alt="Port Pressure"
-                    width={images[imageIndex].width}
-                    height={images[imageIndex].height}
-                    className="object-cover w-full h-full transition-all duration-500"
-                    priority={imageIndex === 0} // Prioritize the first image load for faster LCP
-                    loading={imageIndex === 0 ? "eager" : "lazy"} // Eager loading for the first image, lazy for others
+                    src="/driveway.jpg" // Static Image (ensure it's optimized)
+                    alt="Driveway"
+                    width={1920} // Image width for optimization
+                    height={1080} // Image height for optimization
+                    className="object-cover w-full h-full"
+                    priority={true} // Prioritize loading for the first image for better performance
+                    loading="eager" // Eager loading for faster LCP
+                    quality={75} // Reduce quality slightly for a faster load
+                    sizes="(max-width: 768px) 100vw, 50vw" // Responsively load based on viewport width
                   />
                 </div>
               </div>
