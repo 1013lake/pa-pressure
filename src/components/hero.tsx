@@ -3,10 +3,14 @@
 import { useState, useEffect } from "react";
 import Edges from "./edges";
 import Link from "next/link"; // Import Link for Next.js navigation
+import Image from "next/image"; // Import Image component for optimized images
 
 export default function Hero() {
   const [imageIndex, setImageIndex] = useState(0);
-  const images = ["/980clean.jpg", "/980dirty.jpg"]; // Replace with your actual images for Port Pressure
+  const images = [
+    { src: "/980clean.jpg", width: 1920, height: 1080 }, // Add image dimensions for optimization
+    { src: "/980dirty.jpg", width: 1920, height: 1080 }, // Add image dimensions for optimization
+  ];
 
   useEffect(() => {
     const interval = setInterval(
@@ -68,20 +72,15 @@ export default function Hero() {
 
               {/* Increased Image Size */}
               <div className="lg:w-1/2 mt-[50px] lg:mt-0 relative w-full h-[600px] overflow-hidden border-4 border-blue-400 rounded-lg sm:mt-8">
-                <img
-                  src={images[0]}
-                  alt="Port Pressure"
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
-                    imageIndex === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
-                />
-                <img
-                  src={images[1]}
-                  alt="Port Pressure"
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
-                    imageIndex === 1 ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
-                />
+                <div className="absolute inset-0 w-full h-full">
+                  <Image
+                    src={images[imageIndex].src}
+                    alt="Port Pressure"
+                    width={images[imageIndex].width}
+                    height={images[imageIndex].height}
+                    className="object-cover w-full h-full transition-all duration-500"
+                  />
+                </div>
               </div>
             </div>
           </main>

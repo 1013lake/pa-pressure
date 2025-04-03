@@ -1,17 +1,60 @@
 import React from "react";
+import Image from "next/image"; // Import the Image component for optimization
 import Edges from "./edges"; // Ensure Edges component is imported
 
 // Example service images, replace with actual images
 const services = [
-  { id: 1, name: "Heavy Machinery Cleaning", imageUrl: "/980clean.jpg" },
-  { id: 2, name: "Walkways", imageUrl: "/brick.jpg" },
-  { id: 3, name: "Driveways / Cement", imageUrl: "/driveway.jpg" },
-  { id: 4, name: "Grafitti Removal", imageUrl: "/graffiti.jpg" },
-  { id: 5, name: "Bin Cleaning", imageUrl: "/bluetrash.jpg" },
-  { id: 6, name: "Pad Cleaning,", imageUrl: "/padcleaning.jpeg" },
-  { id: 7, name: "Exterior House Wash", imageUrl: "/siding.png" },
-  { id: 8, name: "Decking", imageUrl: "/wood.png" },
-  { id: 9, name: "Gutter Cleaning", imageUrl: "/gutter.jpg" }, // Adding a 9th item
+  {
+    id: 1,
+    name: "Heavy Machinery Cleaning",
+    imageUrl: "/980clean.jpg",
+    width: 500,
+    height: 300,
+  },
+  { id: 2, name: "Walkways", imageUrl: "/brick.jpg", width: 500, height: 300 },
+  {
+    id: 3,
+    name: "Driveways / Cement",
+    imageUrl: "/driveway.jpg",
+    width: 500,
+    height: 300,
+  },
+  {
+    id: 4,
+    name: "Graffiti Removal",
+    imageUrl: "/graffiti.jpg",
+    width: 500,
+    height: 300,
+  },
+  {
+    id: 5,
+    name: "Bin Cleaning",
+    imageUrl: "/bluetrash.jpg",
+    width: 500,
+    height: 300,
+  },
+  {
+    id: 6,
+    name: "Pad Cleaning",
+    imageUrl: "/padcleaning.jpeg",
+    width: 500,
+    height: 300,
+  },
+  {
+    id: 7,
+    name: "Exterior House Wash",
+    imageUrl: "/siding.png",
+    width: 500,
+    height: 300,
+  },
+  { id: 8, name: "Decking", imageUrl: "/wood.png", width: 500, height: 300 },
+  {
+    id: 9,
+    name: "Gutter Cleaning",
+    imageUrl: "/gutter.jpg",
+    width: 500,
+    height: 300,
+  }, // Adding a 9th item
 ];
 
 export default function ServicesProvided() {
@@ -32,9 +75,11 @@ export default function ServicesProvided() {
                 className="flex flex-col items-center justify-center bg-blue-300 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
               >
                 <div className="w-full h-48 relative">
-                  <img
+                  <Image
                     src={service.imageUrl}
                     alt={service.name}
+                    width={service.width}
+                    height={service.height}
                     className="w-full h-full object-cover"
                   />
                 </div>

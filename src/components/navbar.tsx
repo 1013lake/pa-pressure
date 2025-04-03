@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link"; // Importing next/link
+import Image from "next/image"; // Importing next/image for optimized images
 
 // Mobile navigation links
 const mobileNavigation = [
@@ -21,9 +22,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="-m-1.5 p-1.5 flex items-center">
           <span className="sr-only">Port Pressure</span>
-          <img
+          <Image
             alt="Port Pressure"
             src="/pressurelogow.png" // Replace with your actual logo URL
+            width={64} // Specify the width
+            height={64} // Specify the height
             className="h-16 w-auto"
           />
         </Link>
@@ -83,9 +86,11 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Port Pressure</span>
-              <img
+              <Image
                 alt="Port Pressure Logo"
                 src="/pressurelogow.png"
+                width={64} // Specify the width
+                height={64} // Specify the height
                 className="h-16 w-auto"
               />
             </Link>

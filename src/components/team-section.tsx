@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // Import the Image component from Next.js
 import Edges from "./edges"; // Import the Edges component
 
 // Updated team members
@@ -6,20 +7,26 @@ const people = [
   {
     name: "Dan Blake",
     role: "Owner / Operator",
-    imageUrl: "pressurelogow.png", // Make sure this image path is correct
+    imageUrl: "/pressurelogow.png", // Make sure this image path is correct
     altText: "Dan Blake portrait",
+    width: 64, // Specify the image width
+    height: 64, // Specify the image height
   },
   {
     name: "Brendo",
     role: "Company High Jacker", // Role for Brendo
-    imageUrl: "pressurelogow.png", // Add the correct image path for Brendo
+    imageUrl: "/pressurelogow.png", // Add the correct image path for Brendo
     altText: "Brendo portrait",
+    width: 64, // Specify the image width
+    height: 64, // Specify the image height
   },
   {
     name: "Rene",
     role: "Mentor", // Role for Rene
-    imageUrl: "pressurelogow.png", // Add the correct image path for Rene
+    imageUrl: "/pressurelogow.png", // Add the correct image path for Rene
     altText: "Rene portrait",
+    width: 64, // Specify the image width
+    height: 64, // Specify the image height
   },
 ];
 
@@ -48,11 +55,15 @@ export default function Team() {
           >
             {people.map((person) => (
               <li key={person.name} className="flex items-center gap-x-6">
-                <img
-                  alt={person.altText}
-                  src={person.imageUrl}
-                  className="w-16 h-16 rounded-full object-cover"
-                />
+                <div className="w-16 h-16 relative">
+                  <Image
+                    alt={person.altText}
+                    src={person.imageUrl}
+                    width={person.width} // Use width from the data
+                    height={person.height} // Use height from the data
+                    className="rounded-full object-cover"
+                  />
+                </div>
                 <div>
                   <h3 className="text-lg font-semibold text-white">
                     {person.name}
