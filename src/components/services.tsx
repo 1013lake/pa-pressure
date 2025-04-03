@@ -67,13 +67,14 @@ export default function ServicesProvided() {
             Services We Provide
           </h2>
 
-          {/* Grid layout with three rows and three columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {/* Grid layout with responsive classes for better performance */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <div
                 key={service.id}
                 className="flex flex-col items-center justify-center bg-blue-300 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
               >
+                {/* Image with responsive loading */}
                 <div className="w-full h-48 relative">
                   <Image
                     src={service.imageUrl}
@@ -81,6 +82,10 @@ export default function ServicesProvided() {
                     width={service.width}
                     height={service.height}
                     className="w-full h-full object-cover"
+                    priority={true} // Use 'priority' for above-the-fold images
+                    // Alternatively, you can use loading="lazy" for below-the-fold images
+                    // loading="lazy" // Uncomment this if the image is below the fold
+                    sizes="(max-width: 768px) 100vw, 33vw" // Responsively handle image size
                   />
                 </div>
                 <p className="text-lg font-medium text-gray-900 mt-4">

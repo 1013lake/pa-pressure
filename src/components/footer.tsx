@@ -11,24 +11,24 @@ const FooterSection = ({ title, links }: { title: string; links: Link[] }) => (
   <div>
     <h3 className="text-lg font-semibold">{title}</h3>
     <ul className="mt-4 space-y-2 text-sm">
-      {links && links.length > 0 ? (
-        links.map((link, index) => (
-          <li key={index}>
-            <a href={link.href} className="hover:text-blue-400">
-              {link.text}
-            </a>
-          </li>
-        ))
-      ) : (
-        <li>No links available</li>
-      )}
+      {links.map((link, index) => (
+        <li key={index}>
+          <a
+            href={link.href}
+            className="hover:text-blue-400"
+            aria-label={`Go to ${link.text}`}
+          >
+            {link.text}
+          </a>
+        </li>
+      ))}
     </ul>
   </div>
 );
 
 const Footer = () => {
   // Links for each section in arrays
-  const locationsLinks = [
+  const locationsLinks: Link[] = [
     { href: "#", text: "Port Alberni" },
     { href: "#", text: "Qualicum Beach" },
     { href: "#", text: "Parksville" },
@@ -39,7 +39,7 @@ const Footer = () => {
     { href: "#", text: "Ladysmith" },
   ];
 
-  const servicesLinks = [
+  const servicesLinks: Link[] = [
     { href: "#", text: "Pressure Washing" },
     { href: "#", text: "Heavy Duty Equipment Cleaning" },
     { href: "#", text: "Driveway Cleaning" },
@@ -50,7 +50,7 @@ const Footer = () => {
     { href: "#", text: "Deck Cleaning" },
   ];
 
-  const followUsLinks = [
+  const followUsLinks: Link[] = [
     { href: "#", text: "Facebook" },
     { href: "#", text: "Instagram" },
   ];

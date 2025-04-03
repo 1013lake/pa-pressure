@@ -9,24 +9,24 @@ const people = [
     role: "Owner / Operator",
     imageUrl: "/pressurelogow.png", // Make sure this image path is correct
     altText: "Dan Blake portrait",
-    width: 64, // Specify the image width
-    height: 64, // Specify the image height
+    width: 64,
+    height: 64,
   },
   {
     name: "Brendo",
     role: "Company High Jacker", // Role for Brendo
     imageUrl: "/pressurelogow.png", // Add the correct image path for Brendo
     altText: "Brendo portrait",
-    width: 64, // Specify the image width
-    height: 64, // Specify the image height
+    width: 64,
+    height: 64,
   },
   {
     name: "Rene",
     role: "Mentor", // Role for Rene
     imageUrl: "/pressurelogow.png", // Add the correct image path for Rene
     altText: "Rene portrait",
-    width: 64, // Specify the image width
-    height: 64, // Specify the image height
+    width: 64,
+    height: 64,
   },
 ];
 
@@ -48,6 +48,7 @@ export default function Team() {
               delivering the best results for our clients.
             </p>
           </div>
+
           {/* List of team members */}
           <ul
             role="list"
@@ -55,13 +56,16 @@ export default function Team() {
           >
             {people.map((person) => (
               <li key={person.name} className="flex items-center gap-x-6">
-                <div className="w-16 h-16 relative">
+                <div className="w-16 h-16 relative rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
                   <Image
                     alt={person.altText}
                     src={person.imageUrl}
-                    width={person.width} // Use width from the data
-                    height={person.height} // Use height from the data
-                    className="rounded-full object-cover"
+                    width={person.width}
+                    height={person.height}
+                    className="object-cover"
+                    priority // Priority for above-the-fold images
+                    sizes="(max-width: 768px) 25vw, 10vw" // Responsively adjust the size
+                    quality={75} // Set image quality for faster load
                   />
                 </div>
                 <div>
